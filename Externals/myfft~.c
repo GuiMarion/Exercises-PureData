@@ -67,8 +67,8 @@ t_int *myfft_tilde_perform(t_int *w){
 	int i;
 	for(i=0; i<n; i++)
 	{
-		//out[i]=fft_array[i];
-		out[i] = in1[i];
+		out[i]=fft_array[i];
+		//out[i] = in1[i];
 	}
 
 	/* return a pointer to the dataspace for the next dsp-object */
