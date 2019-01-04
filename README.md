@@ -6,7 +6,7 @@ Here you can find some pd externals coded in C for a class validation at IRCAM, 
 
 ### Dependencies
 
-We splitted the exercices in two parts : Tools and Instrument, each corresponding folder has a proper Makefile.
+We splitted the exercices in two parts : Tools and Instruments, each corresponding folder has a proper Makefile.
 
 Some mandatory files are in other gits (puredata and pd-lib-builder) so if you want to use our Makefile, please git clone the corresponding gits. So to get started, go to a directory you want to have our projet into and do the following : 
 
@@ -22,7 +22,7 @@ Now, you have everything you need to compile our externals, just make sure you h
 
 ### Compile
 
-To compile our externals, you can use our Makefile, to do so please go to the corresponding directory, for exemple, 
+To compile our externals, you can use our Makefile, to do so, go to the corresponding directory, for exemple, 
 
       cd Part1_Tools
       
@@ -30,14 +30,14 @@ And type make,
 
       make
      
-Depending on your os, you should have the corresponding librairy, if you want to test ou externals, you can use our pd script. If you using MacOs, the open command can be very useful, 
+You should get the librairies corresponding to your os, if you want to test our externals, you can use our pd script. If you using MacOs, the open command can be quit effecient, 
 
      open main.pd
      
 
 ## Part 1: Tools
 
-The first part consists in making some tools for pd: a clock that gives the time, a multipouet that is a counter in which we wan change the step and the range, a duck effect, and an fft. This is what you should see when you open the main.
+The first part consists in making some tools for pd: a clock that gives the time, a multipouet that is a counter which we can change the step and the range, a duck effect, and an fft. This is what you should see when you open the main.
 
 ![alt text](figures/main_Part1.png "pd main Part1")
 
