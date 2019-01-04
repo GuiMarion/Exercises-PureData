@@ -35,3 +35,5 @@ Depending on your os, you should have the corresponding librairy, if you want to
      open main.pd
      
 This is what you should see.
+
+![alt text](figures/main_Part1.png "pd main Part1")
