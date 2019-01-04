@@ -34,7 +34,10 @@ Depending on your os, you should have the corresponding librairy, if you want to
 
      open main.pd
      
-This is what you should see.
+
+## Part1: Tools
+
+The first part consists in making some tools for pd: a clock that gives the time, a multipouet that is a counter in which we wan change the step and the range, a duck effect, and an fft. This is what you should see when you open the main.
 
 ![alt text](figures/main_Part1.png "pd main Part1")
 
