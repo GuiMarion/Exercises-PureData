@@ -37,3 +37,5 @@ Depending on your os, you should have the corresponding librairy, if you want to
 This is what you should see.
 
 ![alt text](figures/main_Part1.png "pd main Part1")
+
+Note that myfft has a narrower pic than fft but with large secondary pics. This is due to a different windowing (we used a Blackman Window).
