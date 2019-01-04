@@ -38,4 +38,4 @@ This is what you should see.
 
 ![alt text](figures/main_Part1.png "pd main Part1")
 
-Note that myfft has a narrower pic than fft but with large secondary pics. This is due to a different windowing (we used a Blackman Window).
+Note that myfft has a narrower pic than fft but with large secondary pics. This is due to a different windowing (we used a Blackman Window). We also replaced the outlet list from multipouet by a number for readibility reasons (the code is commented).
