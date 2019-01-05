@@ -5,10 +5,6 @@
 
 void multipouet_bang(t_multipouet *x){
 
-	//time_str[8] = '\0';
-
-	//outlet_symbol(x->h_out, gensym(time_str));
-
 	x->counter += x->step;
 
 	if (x->counter > x->end){
@@ -20,7 +16,20 @@ void multipouet_bang(t_multipouet *x){
 		outlet_bang(x->b_out);
   	}
 
-	//outlet_list(x->x_out, gensym("list"), x->counter, list);
+  	/*
+  	char** list = malloc(x->counter * sizeof(char*));
+  	char string[] = "pouet";
+
+  	int i;
+  	for (i = 0; i < x->counter; i++){
+
+  		list[i] = string;
+  	}
+
+	outlet_list(x->f_out, gensym("list"), x->counter, list);
+
+	free(list);
+	*/
 
 	outlet_float(x->f_out, x->counter);
 }
@@ -58,7 +67,6 @@ void *multipouet_new(int argc, t_atom *argv){
 	x->step = initialStep;
 
 	// Declare inlets
-	//floatinlet_new(&x->x_obj, &x->step);
 	inlet_new(&x->x_obj, &x->x_obj.ob_pd,
         gensym("float"), gensym("set_step"));
 	inlet_new(&x->x_obj, &x->x_obj.ob_pd,

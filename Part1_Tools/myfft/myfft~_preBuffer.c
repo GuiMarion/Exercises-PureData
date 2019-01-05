@@ -1,21 +1,24 @@
 #include "myfft~.h"
-
-#include <math.h>
-#include <stdio.h>
-
-#include "fft4g_h.c"
+#include "ringBuffer.h"
 
 #include <time.h>
 #include <string.h>
 #include <stdlib.h>
-#include <unistd.h>
+#include <math.h>
 
-#define PI 3.14159265358979323846
 
 void *myfft_tilde_new(void){
 
 	t_myfft_tilde *x = (t_myfft_tilde *)pd_new(myfft_tilde_class);
 	x->x_out = outlet_new(&x->x_obj, &s_signal);
+	x->buffer_size = 8192;
+	x->buffer = malloc(x->buffer_size*sizeof(t_float)); // We maintain a buffer of size 8192 for the fft
+	x->position = 0;
+
+	int i;
+	for (i=0; i< x->buffer_size; i++){
+		x->buffer[i] = 0.0;
+	}
 
 	return (void *)x;
 
@@ -24,6 +27,7 @@ void *myfft_tilde_new(void){
 void myfft_tilde_free(t_myfft_tilde *x){
 
 	outlet_free(x->x_out);
+	free(x->buffer);
 
 }
 
@@ -44,6 +48,7 @@ void myfft_tilde_setup(void) {
 
 t_int *myfft_tilde_perform(t_int *w){
 
+	t_myfft_tilde *x = (t_myfft_tilde *)(w[1]);
 	/* here is a pointer to the t_sample arrays that hold the 2 input signals */
 	t_sample  *in1 =    (t_sample *)(w[2]);
 	/* here comes the signalblock that will hold the output signal */
@@ -51,24 +56,32 @@ t_int *myfft_tilde_perform(t_int *w){
 	/* all signalblocks are of the same length */
 	int          n =           (int)(w[4]);
 
-	int T = 64;
-	int t;
-	double fft_array[64];
+	// char array[10];
+	// sprintf(array, "%d", x->position);
+	// post("position:");
+	// post(array);
 
-	for(t=0; t<T; t++){
+	// sprintf(array, "%d", x->buffer_size);
+	// post("buffer_size:");
+	// post(array);
 
-		fft_array[t] = 0.42 - 0.5*cos(2*PI*t/T) + 0.08*cos(4*PI*t/T);
-		fft_array[t] *= in1[t];
+	if (x->position + n > x->buffer_size){
+
+		char array[100];
+		sprintf(array, "%f", x->buffer[0]);
+		post(array);
+
+		/*COMPUTE FFT*/
+
+		x->position = 0;
 
 	}
-
-	rdft(T, 1, fft_array);
-
 	int i;
 	for(i=0; i<n; i++)
 	{
-		out[i]=fft_array[i];
-		//out[i] = in1[i];
+		out[i]=in1[i];
+		x->buffer[x->position] = in1[i];
+		x->position ++;
 	}
 
 	/* return a pointer to the dataspace for the next dsp-object */

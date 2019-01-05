@@ -39,6 +39,10 @@ You should get the librairies corresponding to your os, if you want to test our 
 
 The first part consists in making some tools for pd: a clock that gives the time, a multipouet that is a counter which we can change the step and the range, a duck effect, and an fft. This is what you should see when you open the main.
 
+The myfft~ external uses a ring buffer in order to cmpute fft on different window size, independently of the pd buffer size. You can pass as parameter the windows size you want for fft computation, it should be a power of 2 betweeen 64 and 131072 (huge!! use it in purpose). By default, the value of 8192 will be used, this is the one we recommand. A windowing with a Blackman window is made on the input signal, the output signal from the fft is decimate in order to be send to pd outlet.
+
+This is what you should see if you open the main pd script.
+
 ![alt text](figures/main_Part1.png "pd main Part1")
 
-Note that myfft has a narrower pic than fft but with large secondary pics. This is due to a different windowing (we used a Blackman Window). We also replaced the outlet list from multipouet by a number for readibility reasons (the code is commented).
+Note that myfft has a narrower pic than fft but can have have some secondary pics for low window size. We also replaced the outlet list of multipouet by a number for readibility reasons (the code is commented).
