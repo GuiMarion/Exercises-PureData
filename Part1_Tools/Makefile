@@ -1,5 +1,5 @@
 # Library name
-lib.name = Guilhem
+lib.name = ToolsGuilhem
 
 # Source file
 class.sources = horloge/horloge.c multipouet/multipouet.c duckEffect/duck~.c myfft/myfft~.c
