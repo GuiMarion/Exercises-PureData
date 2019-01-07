@@ -46,3 +46,11 @@ This is what you should see if you open the main pd script.
 ![alt text](figures/main_Part1.png "pd main Part1")
 
 Note that myfft has a narrower pic than fft but can have have some secondary pics for low window size. We also replaced the outlet list of multipouet by a number for readibility reasons (the code is commented).
+
+## Part2: Instruments
+
+We implemented only two of the proposed instruments: spectral cross synthesis and shaping cross synthesis. In order to reduce the length of the signal computed from the buffer to the length of the pd buffer, we decimate the signal while we are in the frequency domain, so that we do not have too much problem with aliasing. This technique seems to be so effective, we will try to figure out a better one as improvement. We used the microphone and a wav file (click to import the one you want) to produce sound in our pd script. 
+
+This is what you should see if you open the main pd script.
+
+![alt text](figures/main_Part2.png "pd main Part2")
