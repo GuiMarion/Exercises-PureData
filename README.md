@@ -30,7 +30,7 @@ And type make,
 
       make
      
-You should get the librairies corresponding to your os, if you want to test our externals, you can use our pd script. If you using MacOs, the open command can be quit effecient, 
+You should get the librairies corresponding to your os, if you want to test our externals, you can use our pd script. If you are using MacOs, the open command can be quit effecient, 
 
      open main.pd
      
