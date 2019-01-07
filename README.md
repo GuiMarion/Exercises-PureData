@@ -54,3 +54,8 @@ We implemented only two of the proposed instruments: spectral cross synthesis an
 This is what you should see if you open the main pd script.
 
 ![alt text](figures/main_Part2.png "pd main Part2")
+
+## Licence
+
+Everything in this repository is free, you can use it for any purpose as long as you cite the repository somewhere.
+For any request or question, feel free to contact me.
