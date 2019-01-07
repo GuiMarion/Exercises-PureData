@@ -49,11 +49,22 @@ Note that myfft has a narrower pic than fft but can have have some secondary pic
 
 ## Part2: Instruments
 
-We implemented only two of the proposed instruments: spectral cross synthesis and shaping cross synthesis. In order to reduce the length of the signal computed from the buffer to the length of the pd buffer, we decimate the signal while we are in the frequency domain, so that we do not have too much problem with aliasing. This technique seems to be so effective, we will try to figure out a better one as improvement. We used the microphone and a wav file (click to import the one you want) to produce sound in our pd script. 
+We implemented only two of the proposed instruments: Spectral Cross Synthesis and Shaping Cross Synthesis. In order to reduce the length of the signal computed from the buffer to the length of the pd buffer, we decimate the signal while we are in the frequency domain, so that we do not have too much problem with aliasing. This technique don't seems to be so effective, we will try to figure out a better one as improvement. We used the microphone and a wav file (click to import the one you want) to produce sound in our pd script. 
 
 This is what you should see if you open the main pd script.
 
 ![alt text](figures/main_Part2.png "pd main Part2")
+
+## Spetral Cross Synthesis
+
+This first inlet is for the harmonicaly rich signal, the second for the carrier.
+The third inlet is for the threshold, the fourth one is for bypass, put it to 1 if you want to hear only the first signal. Autonorm is activated by default, you can change this by changin the global variable at the top of mysyth1~.c.
+
+## Shaping Cross Synthesis
+
+This first inlet is for the harmonicaly rich signal, the second for the carrier.
+The third inlet is for the shape width, that should intensifiate the effect, the fourth one is for bypass, put it to 1 if you want to hear only the first signal.
+
 
 ## Licence
 
